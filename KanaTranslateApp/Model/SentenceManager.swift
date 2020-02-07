@@ -59,7 +59,6 @@ struct SentenceManager {
             delegate?.errorHappened(error)
             return nil
         }
-        
     }
     
 }
