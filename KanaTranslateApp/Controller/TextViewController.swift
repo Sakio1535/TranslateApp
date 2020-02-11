@@ -11,13 +11,17 @@ import UIKit
 class TextViewController: UIViewController {
     
     //MARK: - Variables
+        //外部から呼び出し
     var textManager = TextManager()
     var indicator = ActivityIndicator()
     
     var translateMode = true    //trueがかな、falseがカナ
     
+    var catTimer = Timer()
+    var count = 0
+        //UI部品
     var mainTextView = UITextView()
-    var catImage = UIImageView()
+    var catImageButton = UIButton()
     var catSecretImage = UIImageView()
     var translateButton = UIButton()
     var deleteButton = UIButton()
@@ -40,24 +44,27 @@ class TextViewController: UIViewController {
         self.view.addSubview(mainTextView)
         
         //猫の配置
-        catImage.frame = CGRect(x: mainTextView.frame.origin.x,
+        catImageButton.frame = CGRect(x: mainTextView.frame.origin.x,
                                 y: mainTextView.frame.origin.y + mainTextView.frame.height + 20,
                                 width: 100,
                                 height: 100)
-        catImage.image = UIImage(named: "cat-0")
-        self.view.addSubview(catImage)
+        catImageButton.setImage(UIImage(named: "cat-0"), for: .normal)
+            //ボタンタップ時の変化を無効化
+        catImageButton.adjustsImageWhenHighlighted = false
+        catImageButton.adjustsImageWhenDisabled = false
+        self.view.addSubview(catImageButton)
         
         //シークレット猫の配置
         catSecretImage.frame = CGRect(x: self.view.frame.width - 80,
                                       y: self.view.frame.height - 80,
                                       width: 80,
                                       height: 80)
-        catSecretImage.image = UIImage(named: "cat-1")
+        catSecretImage.image = UIImage(named: "catSecret-0")
         self.view.addSubview(catSecretImage)
         
         //変換buttonの配置
-        translateButton.frame = CGRect(x: catImage.frame.origin.x + catImage.frame.width + 20,
-                                       y: catImage.frame.origin.y + 30,
+        translateButton.frame = CGRect(x: catImageButton.frame.origin.x + catImageButton.frame.width + 20,
+                                       y: catImageButton.frame.origin.y + 30,
                                        width: 200,
                                        height: 70)
         translateButton.layer.cornerRadius = 5
@@ -75,8 +82,8 @@ class TextViewController: UIViewController {
         self.view.addSubview(deleteButton)
         
         //かなカナ変更ボタン
-        selectButton.frame = CGRect(x: catImage.frame.origin.x + catImage.frame.width + 20,
-                                    y: catImage.frame.origin.y,
+        selectButton.frame = CGRect(x: catImageButton.frame.origin.x + catImageButton.frame.width + 20,
+                                    y: catImageButton.frame.origin.y,
                                     width: 80,
                                     height: 20)
         selectButton.selectedSegmentIndex = 0
@@ -85,6 +92,7 @@ class TextViewController: UIViewController {
         
         //Event & Action
         self.mainTextView.becomeFirstResponder()    //起動時、キーボード表示
+        catImageButton.addTarget(self, action: #selector(startAnimation(_:)), for: .touchUpInside)
         translateButton.addTarget(self, action: #selector(translateText(_:)), for: .touchUpInside)
         deleteButton.addTarget(self, action: #selector(deleteText(_:)), for: .touchUpInside)
         selectButton.addTarget(self, action: #selector(changeMode(_:)), for: .valueChanged)
@@ -92,6 +100,24 @@ class TextViewController: UIViewController {
     }
     
     //MARK: - Functions
+    //猫のアニメーション
+    @objc func startAnimation(_ sender: UIButton) {
+        catImageButton.isEnabled = false
+        
+        catTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(catAnimation), userInfo: nil, repeats: true)
+    }
+    @objc func catAnimation() {
+        count += 1
+        
+        catImageButton.setImage(UIImage(named: "cat-\(count)"), for: .normal)
+        if count > 4 {
+            count = 0
+            catImageButton.setImage(UIImage(named: "cat-\(count)"), for: .normal)
+            catImageButton.isEnabled = true
+            catTimer.invalidate()
+        }
+    }
+    
     //かな・カナ変換
     @objc func translateText(_ sender: UIButton) {
         if let myText = mainTextView.text {
