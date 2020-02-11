@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7207B323F1542700AB9CEC /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7207B223F1542700AB9CEC /* ActivityIndicator.swift */; };
 		CEC23E1F23EB081E004E3588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E1E23EB081E004E3588 /* AppDelegate.swift */; };
 		CEC23E2123EB081E004E3588 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E2023EB081E004E3588 /* SceneDelegate.swift */; };
 		CEC23E2323EB081E004E3588 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E2223EB081E004E3588 /* TextViewController.swift */; };
 		CEC23E2623EB081E004E3588 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC23E2423EB081E004E3588 /* Main.storyboard */; };
 		CEC23E2823EB0821004E3588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC23E2723EB0821004E3588 /* Assets.xcassets */; };
 		CEC23E2B23EB0821004E3588 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC23E2923EB0821004E3588 /* LaunchScreen.storyboard */; };
-		CEC23E3623EC2AA7004E3588 /* SentenceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E3523EC2AA7004E3588 /* SentenceData.swift */; };
-		CEC23E3A23EC3F34004E3588 /* SentenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E3923EC3F34004E3588 /* SentenceManager.swift */; };
+		CEC23E3623EC2AA7004E3588 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E3523EC2AA7004E3588 /* TextData.swift */; };
+		CEC23E3A23EC3F34004E3588 /* TextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E3923EC3F34004E3588 /* TextManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE7207B223F1542700AB9CEC /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		CEC23E1B23EB081E004E3588 /* KanaTranslateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanaTranslateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC23E1E23EB081E004E3588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC23E2023EB081E004E3588 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,8 +28,8 @@
 		CEC23E2723EB0821004E3588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEC23E2A23EB0821004E3588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEC23E2C23EB0821004E3588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEC23E3523EC2AA7004E3588 /* SentenceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceData.swift; sourceTree = "<group>"; };
-		CEC23E3923EC3F34004E3588 /* SentenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceManager.swift; sourceTree = "<group>"; };
+		CEC23E3523EC2AA7004E3588 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
+		CEC23E3923EC3F34004E3588 /* TextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,8 @@
 		CEC23E1D23EB081E004E3588 /* KanaTranslateApp */ = {
 			isa = PBXGroup;
 			children = (
+				CEC23E1E23EB081E004E3588 /* AppDelegate.swift */,
+				CEC23E2023EB081E004E3588 /* SceneDelegate.swift */,
 				CEC23E3423EC0DDC004E3588 /* Model */,
 				CEC23E3323EC0DD6004E3588 /* View */,
 				CEC23E3223EC0DCB004E3588 /* Controller */,
@@ -72,8 +76,6 @@
 		CEC23E3223EC0DCB004E3588 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CEC23E1E23EB081E004E3588 /* AppDelegate.swift */,
-				CEC23E2023EB081E004E3588 /* SceneDelegate.swift */,
 				CEC23E2223EB081E004E3588 /* TextViewController.swift */,
 			);
 			path = Controller;
@@ -91,8 +93,9 @@
 		CEC23E3423EC0DDC004E3588 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CEC23E3523EC2AA7004E3588 /* SentenceData.swift */,
-				CEC23E3923EC3F34004E3588 /* SentenceManager.swift */,
+				CEC23E3523EC2AA7004E3588 /* TextData.swift */,
+				CEC23E3923EC3F34004E3588 /* TextManager.swift */,
+				CE7207B223F1542700AB9CEC /* ActivityIndicator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,8 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEC23E3623EC2AA7004E3588 /* SentenceData.swift in Sources */,
-				CEC23E3A23EC3F34004E3588 /* SentenceManager.swift in Sources */,
+				CEC23E3623EC2AA7004E3588 /* TextData.swift in Sources */,
+				CE7207B323F1542700AB9CEC /* ActivityIndicator.swift in Sources */,
+				CEC23E3A23EC3F34004E3588 /* TextManager.swift in Sources */,
 				CEC23E2323EB081E004E3588 /* TextViewController.swift in Sources */,
 				CEC23E1F23EB081E004E3588 /* AppDelegate.swift in Sources */,
 				CEC23E2123EB081E004E3588 /* SceneDelegate.swift in Sources */,

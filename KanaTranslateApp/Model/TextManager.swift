@@ -9,20 +9,23 @@
 import UIKit
 
 //MARK: - Delegate
-protocol SentenceManagerDelegate {
-    func translateCompleted(_ kanaData: String)
-    func errorHappened(_ error: Error)
+protocol KanaTransitionDelegate {
+    
+    func translateCompleted(kanaData: String)
+    func errorHappened(error: Error)
+    
 }
 
 //MARK: - JSON Parse
-struct SentenceManager {
+struct TextManager {
     
-    var delegate: SentenceManagerDelegate?  //デリゲート
+    var delegate: KanaTransitionDelegate?  //デリゲート
     
-    let gooURL = "https://labs.goo.ne.jp/api/hiragana"
+    let gooURL = "https://labs.goo.ne.jp/api/hiragana"  //基本URL
+    
     
     func getJson(inputText: String, mode: Bool) {
-        let outputType = mode == true ? "hiragana" : "katakana"
+        let outputType = mode == true ? "hiragana" : "katakana"    //モード変換
         let postData = PostData(app_id: "0e40a8b16d63bc45897dd9bcc1fe57a35da1186e4f190a78434d334cc64fa756",
                                 request_id: "record003",
                                 sentence: inputText,
@@ -36,14 +39,14 @@ struct SentenceManager {
             
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
-                    self.delegate?.errorHappened(error)
+                    self.delegate?.errorHappened(error: error)
                     return
                 }
                 //responseは保留
                 if let checkedData = data {
                     //ここで解析済みのJSONデータ（ひらがな）を受け取る　& デリゲートでVCに渡す
                     if let kanaData = self.parseJson(checkedData) {
-                        self.delegate?.translateCompleted(kanaData)
+                        self.delegate?.translateCompleted(kanaData: kanaData)
                     }
                 }
             }
@@ -56,7 +59,7 @@ struct SentenceManager {
             let decodedData = try JSONDecoder().decode(ResponseData.self, from: jsonData)
             return decodedData.converted
         } catch {
-            delegate?.errorHappened(error)
+            delegate?.errorHappened(error: error)
             return nil
         }
     }
