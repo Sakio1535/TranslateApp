@@ -9,14 +9,14 @@
 import UIKit
 
 struct PostData: Codable {
-    var app_id: String
-    var request_id: String
+    var appId: String
+    var requestId: String
     var sentence: String
-    var output_type: String
+    var outputType: String
 }
 
 struct ResponseData: Codable {
-    var request_id: String
-    var output_type: String
+    var requestId: String
+    var outputType: String
     var converted: String
 }
