@@ -11,7 +11,6 @@
 		CEC23E1F23EB081E004E3588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E1E23EB081E004E3588 /* AppDelegate.swift */; };
 		CEC23E2123EB081E004E3588 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E2023EB081E004E3588 /* SceneDelegate.swift */; };
 		CEC23E2323EB081E004E3588 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E2223EB081E004E3588 /* TextViewController.swift */; };
-		CEC23E2623EB081E004E3588 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC23E2423EB081E004E3588 /* Main.storyboard */; };
 		CEC23E2823EB0821004E3588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC23E2723EB0821004E3588 /* Assets.xcassets */; };
 		CEC23E2B23EB0821004E3588 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC23E2923EB0821004E3588 /* LaunchScreen.storyboard */; };
 		CEC23E3623EC2AA7004E3588 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC23E3523EC2AA7004E3588 /* TextData.swift */; };
@@ -24,7 +23,6 @@
 		CEC23E1E23EB081E004E3588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC23E2023EB081E004E3588 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEC23E2223EB081E004E3588 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
-		CEC23E2523EB081E004E3588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEC23E2723EB0821004E3588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEC23E2A23EB0821004E3588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEC23E2C23EB0821004E3588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 		CEC23E3323EC0DD6004E3588 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CEC23E2423EB081E004E3588 /* Main.storyboard */,
 				CEC23E2923EB0821004E3588 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -93,8 +90,8 @@
 		CEC23E3423EC0DDC004E3588 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CEC23E3523EC2AA7004E3588 /* TextData.swift */,
 				CEC23E3923EC3F34004E3588 /* TextManager.swift */,
+				CEC23E3523EC2AA7004E3588 /* TextData.swift */,
 				CE7207B223F1542700AB9CEC /* ActivityIndicator.swift */,
 			);
 			path = Model;
@@ -160,7 +157,6 @@
 			files = (
 				CEC23E2B23EB0821004E3588 /* LaunchScreen.storyboard in Resources */,
 				CEC23E2823EB0821004E3588 /* Assets.xcassets in Resources */,
-				CEC23E2623EB081E004E3588 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEC23E2423EB081E004E3588 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEC23E2523EB081E004E3588 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEC23E2923EB0821004E3588 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
